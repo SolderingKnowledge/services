@@ -2,8 +2,8 @@
 node_modules/
 .DS_Store
 
-# all secret keys will be in this file for my reference only so I can copy and paste to connectionString.js
-connectionString2.js
+# all secret keys will be in this file for my reference only so I can copy and paste
+secret.env
 
 .eslintcache
 
