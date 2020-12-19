@@ -7,7 +7,7 @@ const colors = require("colors");
 const cors = require("cors");
 
 const places = require("./routes/places");
-const myModule = require("./myModule");
+const { myFunc } = require("./controllers/index");
 
 // environment variables
 dotenv.config({path: "./config/config.env"});
@@ -34,7 +34,7 @@ app.post("/", async (req, res)=>{
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, myModule.myFunc);
+app.listen(PORT, myFunc);
 
 // app.listen(PORT, () => {
 //     console.log(`App listening in ${process.env.NODE_ENV} mode on port:${PORT}`);

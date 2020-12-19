@@ -4,6 +4,7 @@ node_modules/
 
 # all secret keys will be in this file for my reference only so I can copy and paste
 secret.env
+temp.js
 
 .eslintcache
 
