@@ -1,6 +1,9 @@
 const express = require("express");
+// const { router } = require("express"); valid
+const { check } = require("express-validator")
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const colors = require("colors")
 
 const places = require("./routes/places");
 const myModule = require("./myModule");
@@ -10,18 +13,18 @@ dotenv.config({path: "./config/config.env"});
 
 const app = express();
 
-// app.use("/places", places);
+app.use("/places", places);
 
 app.get("/:place", async (req, res)=>{
     res.json({msg: req.query})
 })
 
-app.get("/", async (req, res)=>{
-    //both the same
-    res.json({greeting: "Hello"});
-    res.send({greeting: "Hello"});
-})
 
+app.post("/", async (req, res)=>{
+    //both the same
+    // res.json({greeting: "Hello"});
+    // res.send({greeting: "Hello"});
+}) 
 
 
 const PORT = process.env.PORT || 5000;
