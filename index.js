@@ -3,7 +3,8 @@ const express = require("express");
 const { check } = require("express-validator")
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
-const colors = require("colors")
+const colors = require("colors");
+const cors = require("cors");
 
 const places = require("./routes/places");
 const myModule = require("./myModule");
@@ -12,6 +13,10 @@ const myModule = require("./myModule");
 dotenv.config({path: "./config/config.env"});
 
 const app = express();
+
+app.use(cors());
+app.use(bodyParser.json);
+// app.use(bodyParser.urlencoded({extended: true}));
 
 app.use("/places", places);
 
