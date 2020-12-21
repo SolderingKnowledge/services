@@ -8,6 +8,7 @@ const cors = require("cors");
 
 const places = require("./routes/places");
 const { myFunc } = require("./controllers/index");
+const { generateToken } = require("./utils/generateToken");
 
 // environment variables
 dotenv.config({path: "./config/config.env"});
@@ -15,15 +16,19 @@ dotenv.config({path: "./config/config.env"});
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json);
+app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended: true}));
 
-app.use("/places", places);
+// app.use("/places", places);
 
-app.get("/:place", async (req, res)=>{
-    res.json({msg: req.query})
+// app.get("/:place", async (req, res)=>{
+//     res.json({msg: req.query})
+// })
+
+app.get("/", (req, res)=> {
+    // console.log("first".red.inverse);
+    res.json({msg: "Hello"});
 })
-
 
 app.post("/", async (req, res)=>{
     //both the same
